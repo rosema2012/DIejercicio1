@@ -10,21 +10,8 @@ namespace DiEjercicio1
 {
     class Program
     {
-        string Titulo;
-        string Fabricante;
-
-        int Año;
-
-        enum Estilo
-        {
-            Arcade,
-            Videoaventura,
-            Shootemup,
-            Estrategia,
-            Deportivo
-        };
-
-        ArrayList Videojuegos = new ArrayList();
+        //ArrayList Videojuegos = new ArrayList();
+       ArrayList Videojuegos = new ArrayList();
 
         public int Menu()
         {
@@ -47,12 +34,22 @@ namespace DiEjercicio1
 
         public void Selection(int num)
         {
-            int seleccion;
+            string titulo, fabricantes;
+            int seleccion,año;
             seleccion = num;
             switch (seleccion)
             {
                 case 1:
-                    Console.WriteLine("1");
+                    Console.Write("============================\n" +
+                        "      Añadir Videojuego    =" +
+                        "   \n============================\n" +
+                        "a) Titulo: ");
+                    titulo = Console.ReadLine();
+                    Console.Write("b) Fabricante: ");
+                    fabricantes = Console.ReadLine();
+                    Console.Write("c) año: ");
+                    año = Convert.ToInt32(Console.ReadLine());
+                    //Videojuegos.Add(new Videojuegos(titulo, fabricantes,año));
                     break;
                 case 2:
                     Console.WriteLine("2");
