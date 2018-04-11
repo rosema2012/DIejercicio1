@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace DiEjercicio1
 {
+
     class Program
     {
-        //ArrayList Videojuegos = new ArrayList();
-       ArrayList Videojuegos = new ArrayList();
+        static int Salir = 0;
+        ArrayList ArrayVideojuegos = new ArrayList();
 
         public int Menu()
         {
@@ -35,7 +35,7 @@ namespace DiEjercicio1
         public void Selection(int num)
         {
             string titulo, fabricantes;
-            int seleccion,año;
+            int seleccion, año,Estilo;
             seleccion = num;
             switch (seleccion)
             {
@@ -49,16 +49,30 @@ namespace DiEjercicio1
                     fabricantes = Console.ReadLine();
                     Console.Write("c) año: ");
                     año = Convert.ToInt32(Console.ReadLine());
-                    //Videojuegos.Add(new Videojuegos(titulo, fabricantes,año));
+                    Console.Write("D) Categoria: ");
+                    Estilo = Convert.ToInt32(Console.ReadLine());
+                    ArrayVideojuegos.Add(new Videojuegos(titulo, fabricantes, año, Estilo));
                     break;
                 case 2:
-                    Console.WriteLine("2");
+                    Console.WriteLine("¿Que Videojuego desea eliminar? (Elija numero de 0 - " + (ArrayVideojuegos.Count-1+")"));
+                    ArrayVideojuegos.RemoveAt(seleccion);
                     break;
                 case 3:
-                    Console.WriteLine("3");
+                    string nombre;
+                    Console.WriteLine("Elige un Videojuego para comprobar su" +
+                        " existencia y mirar sus datos (Elige un Videojuego de 0 - "+ (ArrayVideojuegos.Count-1)+")\n" +
+                        "Dime el nombre del Videojuego:");
+                    nombre = Console.ReadLine();
+                    foreach (Videojuegos v in ArrayVideojuegos)
+                    {
+                        if (nombre == v.Titulo)
+                        {
+                            Console.Write("El Videojuego ya Existe \nNombre: "+v.Titulo+"\nFabricante: "+v.Fabricante+"\nAño: "+v.Año+"\nCategoria: "+v.Est+"\n");
+                        }
+                    }
                     break;
                 case 4:
-                    Console.WriteLine("4");
+                    Console.WriteLine("Visualizar todos los videojuegos");
                     break;
                 case 5:
                     Console.WriteLine("5");
@@ -70,7 +84,9 @@ namespace DiEjercicio1
                     Console.WriteLine("7");
                     break;
                 case 8:
-                    Console.WriteLine("8");
+
+                    Console.WriteLine("Estas saliendo del programa...");
+                    Salir = 8;
                     break;
             }
         }
@@ -78,7 +94,10 @@ namespace DiEjercicio1
         static void Main(string[] args)
         {
             Program p1 = new Program();
-            p1.Selection(p1.Menu());
+            while ( Salir != 8)
+            {
+                p1.Selection(p1.Menu());
+            }
             Console.ReadKey();
         }
     }
