@@ -25,9 +25,9 @@ namespace DiEjercicio1
             this.Titulo = "Juego";
             this.Fabricante = "JaponesesSeguro";
             this.Año = 1994;
-            this.Est = eEstilo.Arcade;
+            this.Est = (eEstilo)1;
         }
-        public Videojuegos(string nombre, string fabricante, int año,eEstilo Estilo)
+        public Videojuegos(string nombre, string fabricante, int año, eEstilo Estilo)
         {
             this.Titulo = nombre;
             this.Fabricante = fabricante;
