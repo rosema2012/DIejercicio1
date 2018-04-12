@@ -18,7 +18,7 @@ namespace DiEjercicio1
     {
         public string Titulo { set; get; }
         public string Fabricante { set; get; }
-        public eEstilo Est{ set; get; }
+        public eEstilo Est { set; get; }
         public int Año;
         public Videojuegos()
         {
@@ -27,7 +27,7 @@ namespace DiEjercicio1
             this.Año = 1994;
             this.Est = eEstilo.Arcade;
         }
-        public Videojuegos(string nombre, string fabricante, int año, eEstilo Estilo)
+        public Videojuegos(string nombre, string fabricante, int año,eEstilo Estilo)
         {
             this.Titulo = nombre;
             this.Fabricante = fabricante;
